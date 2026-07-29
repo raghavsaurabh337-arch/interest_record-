@@ -4,4 +4,4 @@ from .models import Home
 class homeSerializaers(serializers.ModelSerializer):
      class Meta:
           model=Home
-          field= '__all__'
+          fields = '__all__'

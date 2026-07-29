@@ -27,4 +27,6 @@ urlpatterns = [
     path('search/', front_views.search_record, name='search_record'),
     path('edit_recode/<int:id>/',front_views.edit,name='edit'),
     path('delete_recode/<int:id>/',front_views.delete,name='delete'),
+
+   path('api/', include('api.urls_backend')),
 ]

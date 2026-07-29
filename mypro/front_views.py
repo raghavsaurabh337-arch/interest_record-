@@ -63,3 +63,5 @@ def delete(request,id):
 
 def calculate(request):
      return render(request,'calculate.html')
+
+
