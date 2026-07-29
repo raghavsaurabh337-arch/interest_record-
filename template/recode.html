@@ -1,0 +1,47 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+{% include 'navbar.html' %}
+<div class="container mt-4">
+
+    <form method="GET" action="{% url 'search_record' %}" class="mb-4">
+    <div class="input-group">
+        <input
+            type="text"
+            class="form-control"
+            name="search"
+            placeholder="Search by name..."
+            value="{{ request.GET.search }}"
+        >
+
+        <button class="btn btn-primary" type="submit">
+            Search
+        </button>
+    </div>
+</form>
+
+    <div class="row">
+        {% for record in records %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow">
+                <div class="card-body">
+                    
+                    <h5>{{ record.id }}</h5>
+                    <h5>{{ record.name }}</h5>
+                    <p>Amount : ₹{{ record.amount }}</p>
+                    <p>Interest : {{ record.interest_rate }}%</p>
+                    <p>{{ record.date|date:"d-m-Y" }}</p>
+                    <p>interest:</p>
+                    <p>total:</p>
+
+                    <a href="{% url 'edit' record.id %}" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="{% url 'delete' record.id %}" class="btn btn-danger btn-sm"
+                       onclick="return confirm('Kya aap sach mein delete karna chahte ho?');">Delete</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <h4 class="text-center">No Record Found</h4>
+        {% endfor %}
+    </div>    
+</div>
+{% include 'navbar.html' %}

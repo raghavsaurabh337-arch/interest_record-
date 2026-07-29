@@ -1,0 +1,23 @@
+{% load static %}
+
+
+<nav class="navbar navbar-dark bg-dark fixed-bottom">
+    <div class="container d-flex justify-content-around">
+
+        <a href="{% url 'home' %}" class="text-white text-decoration-none text-center">
+            <div>🏠</div>
+            <small>Home</small>
+        </a>
+
+        <a href="{% url 'calculate' %}" class="text-white text-decoration-none text-center">
+            <div>🧮</div>
+            <small>Calculate</small>
+        </a>
+
+        <a href="{% url 'recode' %}" class="text-white text-decoration-none text-center">
+            <div>📋</div>
+            <small>Record</small>
+        </a>
+
+    </div>
+</nav>
